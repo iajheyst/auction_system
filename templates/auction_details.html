@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Auction details for {{ auction.name }}{% endblock %}
+
+{% block content %}
+    Name:
+    {{ auction.name }}
+
+    Description:
+    {{ auction.description }}
+
+    Price:
+    {{ auction.current_price }}
+
+    Ends on:
+    {{ auction.end_date }}
+{% endblock %}

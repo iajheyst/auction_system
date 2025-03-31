@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Bid on {{ auction.name }}{% endblock %}
+{% block inpage_title %}Bid on {{ auction.name }}{% endblock %}
+
+{% block content %}
+    <p>Description:</p>
+    <p>{{ auction.description }}</p>
+    <p>End date and time:</p>
+    <p>{{ auction.end_time|date:"d N Y" }} on {{ auction.end_time|date:"H:i:s" }}</p>
+    {% if auction.is_active %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary col-2">Bid</button>
+        </form>
+    {% endif %}
+
+    {% if request.user == auction.user or request.user.is_superuser %}
+        <h3>Bid History</h3>
+        <ul class="list-group">
+            {% for bid in auction.bid_set.all %}
+                <li class="list-group-item">{{ bid }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
