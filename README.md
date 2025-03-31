@@ -13,7 +13,9 @@ Start the server
 python manage.py runserver
 ```
 
-Access the website: [http://localhost:8000]('http://localhost:8000')
+Database is SQLite, and is included with the project.
+
+Access the website: [http://localhost:8000](http://localhost:8000)
 
 Admin account also has access to admin panel: [http://localhost:8000/admin/](http://localhost:8000/admin/)
 

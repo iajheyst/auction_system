@@ -7,11 +7,11 @@
     <a href="{% url 'auction_create' %}" class="btn btn-primary mb-2">Create Auction</a>
     <div>
         {% for auction in auction_list %}
-            <a class="card text-decoration-none mb-2" href="{% url 'bid_create' auction.pk %}">
+            <a class="card text-decoration-none mb-2 auction" href="{% url 'bid_create' auction.pk %}">
                 <div class="btn">
                     <p>{{ auction.name }}</p>
                     <p>${{ auction.current_price }}</p>
-                    <p>{{ auction.end_time }}</p>
+                    <p>Ends on: {{ auction.end_time }}</p>
                     <p>
                         {% if auction.is_active %}Active{% else %}Inactive{% endif %}
                     </p>

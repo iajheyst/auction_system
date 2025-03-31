@@ -12,7 +12,7 @@
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="btn btn-primary col-2">Bid</button>
+            <button type="submit" name="submit" class="btn btn-primary col-2">Bid</button>
         </form>
     {% endif %}
 
@@ -21,6 +21,8 @@
         <ul class="list-group">
             {% for bid in auction.bid_set.all %}
                 <li class="list-group-item">{{ bid }}</li>
+            {% empty %}
+                There are no bids yet.
             {% endfor %}
         </ul>
     {% endif %}
